@@ -1,7 +1,7 @@
 # BasicNeuralNetwork
 This project looks over the basic structure of a neural network and how machine learning training algorithms work. For this project, I used the sigmoid function as an activation function along with stochastic gradient descent to adjust the weights and biases.
 
-For this project, this neural network predicts the gender of an individual (either male or female) based on their height and weight.
+This neural network predicts the gender of an individual (either male or female) based on their height and weight.
 
 ## Training Time and Loss
 
