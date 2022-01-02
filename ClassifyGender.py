@@ -26,6 +26,7 @@ def mse_loss(y_pred, y_true):
 
 
 def classify(x):
+    # Classifies whether feed_forward function outputs a male or female based on weight and height of individual
     if x >= .5:
         return 'F - ' + str(x)
     return 'M - ' + str(x)
@@ -41,19 +42,6 @@ class NeuralNetwork:
     """
 
     def __init__(self):
-        # Weights
-        self.w1 = np.random.normal()
-        self.w2 = np.random.normal()
-        self.w3 = np.random.normal()
-        self.w4 = np.random.normal()
-        self.w5 = np.random.normal()
-        self.w6 = np.random.normal()
-
-        # Biases
-        self.b1 = np.random.normal()
-        self.b2 = np.random.normal()
-        self.b3 = np.random.normal()
-
         # Weights and biases for hidden layer
 
         self.h_weights = np.matrix(
@@ -79,9 +67,10 @@ class NeuralNetwork:
 
     def feed_forward(self, x):
         '''
-        h1 = sigmoid(self.w1 * x[0] + self.w2 * x[1] + self.b1)
-        h2 = sigmoid(self.w3 * x[0] + self.w4 * x[1] + self.b2)
-        o1 = sigmoid(self.w5 * h1 + self.w6 * h2 + self.b3)
+        Processes a weight and height and outputs whether the individual is male or female based on weights and biases
+        of neural network
+        :param x: weight and height to be processed (np.matrix size 2 x 1)
+        :return: classification represented by a number between 0 and 1
         '''
 
         h_sum = np.matmul(self.h_weights, x) + self.h_biases  # 2 x 1
@@ -98,7 +87,7 @@ class NeuralNetwork:
         :param y_trues: numpy array with n elements
         """
 
-        learn_rate = 0.1  # learning rate related to gradial descent function
+        learn_rate = .1  # learning rate related to gradial descent function
         epochs = 1000  # number of times to loop through entire dataset
 
         x_axis = []
@@ -157,7 +146,8 @@ class NeuralNetwork:
                 self.o_bias = self.o_bias - learn_rate * biases_o
 
             if epoch % 10 == 0:
-                y_preds = np.array([self.feed_forward(data[0]), self.feed_forward(data[1]), self.feed_forward(data[2]), self.feed_forward(data[3])])
+                y_preds = np.array([self.feed_forward(data[0]), self.feed_forward(data[1]), self.feed_forward(data[2]),
+                                    self.feed_forward(data[3])])
                 x_axis.append(epoch)
                 loss = mse_loss(y_preds, y_trues)
                 y_axis.append(loss)
