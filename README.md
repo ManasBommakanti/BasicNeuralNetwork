@@ -1,9 +1,15 @@
 # BasicNeuralNetwork
-This project looks over the basic structure of a neural network and how machine learning training algorithms work. For this project, I used the sigmoid function as an activation function along with stochastic gradient descent to adjust the weights and biases. 
+This project looks over the basic structure of a neural network and how machine learning training algorithms work. For this project, I used the sigmoid function as an activation function along with stochastic gradient descent to adjust the weights and biases.
+
+For this project, this neural network predicts the gender of an individual (either male or female) based on their height and weight.
 
 ## Training Time and Loss
 
-1.654434 sec
+Time to train neural network: Around 1 to 2 sec
+
+![Graph shows Mean-Squared-Error (MSE) loss](TestRun.png "Title")
+
+Graph shows Mean-Squared-Error (MSE) loss over time. As the loss decreases over time, the network has a better understanding of how to classify the gender of an individual.
 
 # References
 
